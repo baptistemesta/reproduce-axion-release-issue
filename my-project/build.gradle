@@ -1,0 +1,18 @@
+plugins {
+    id 'pl.allegro.tech.build.axion-release' version '1.7.1'
+}
+
+scmVersion {
+    tag {
+        prefix = project.name
+    }
+    repository {
+        directory = file('..')
+    }
+    hooks {
+        // change the version in the readme
+        pre 'fileUpdate', [file: 'README.md', pattern: { v, p -> /$v/ }, replacement: { v, p -> "$v" }]
+        // create a commit for the release
+        pre 'commit', { v, p -> "chore(release): create $project.name release $v" }
+      }
+}
