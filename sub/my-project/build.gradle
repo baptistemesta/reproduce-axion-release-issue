@@ -7,7 +7,7 @@ scmVersion {
         prefix = project.name
     }
     repository {
-        directory = file('..')
+        directory = file('../..')
     }
     hooks {
         // change the version in the readme
@@ -16,3 +16,4 @@ scmVersion {
         pre 'commit', { v, p -> "chore(release): create $project.name release $v" }
       }
 }
+project.version = scmVersion.version
