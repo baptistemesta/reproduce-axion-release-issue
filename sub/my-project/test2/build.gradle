@@ -7,7 +7,7 @@ scmVersion {
         prefix = project.name
     }
     repository {
-        directory = file('../..')
+        directory = file('../../..')
     }
     hooks {
         // change the version in the readme
